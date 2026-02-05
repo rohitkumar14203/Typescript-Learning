@@ -1,0 +1,39 @@
+{
+  "name": "typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev:annotations": "tsx src/1-Annotations/index.ts",
+    "dev:type-interfaces": "tsx src/2-type-interface/index.ts",
+    "dev:any-type": "tsx src/3-any-type/index.ts",
+    "dev:function-parameters": "tsx src/4-function-parameter-annotations/index.ts",
+    "dev:void-function": "tsx src/5-void-function/index.ts",
+    "dev:never-keyword": "tsx src/6-never-keyword/index.ts",
+    "dev:array-type": "tsx src/7-array-type/index.ts",
+    "dev:multi-dimensional-array": "tsx src/8-multi-dimensional-array/index.ts",
+    "dev:objects": " tsx src/9-objects/index.ts",
+    "dev:type-aliases": "tsx src/10-type-aliases/index.ts",
+    "dev:optional-properties": "tsx src/11-optional-properties/index.ts",
+    "dev:readonly-properties": "tsx src/12-readonly-properties/index.ts",
+    "dev:intersection-types": "tsx src/13-intersection-types/index.ts",
+    "dev:unions": "tsx src/14-unions/index.ts",
+    "dev:literal-types": "tsx src/15-literal-types/index.ts",
+    "dev:tuples": "tsx src/16-tuples/index.ts",
+    "dev:enums": "tsx src/17-enums/index.ts",
+    "dev:opp": "tsx src/18-opp/index.ts",
+    "dev:interface": " tsx src/19-interface/index.ts",
+    "dev:generics": "tsx src/20-generics/index.ts",
+    "dev:type-narrowing": " tsx src/21-type-narrowing/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}

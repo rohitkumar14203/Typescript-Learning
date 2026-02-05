@@ -1,0 +1,82 @@
+{
+  // This file tells TypeScript HOW to compile your code.
+  // Think of tsconfig.json as "TypeScript rules for this project".
+  // Official docs: https://aka.ms/tsconfig
+
+  "compilerOptions": {
+    /* ================================
+       OUTPUT & FILE STRUCTURE
+       ================================ */
+
+    // The JavaScript version TypeScript will compile to.
+    // es2022 supports modern features like top-level await,
+    // optional chaining, etc.
+    // Good choice for Node 18+ / 20+
+    "target": "es2022",
+
+    // Defines the module system of the generated JS.
+    // es2022 = modern ES modules (import/export)
+    // Use this if your project uses "type": "module" in package.json
+    "module": "es2022",
+
+    // Tells TypeScript HOW to resolve imports.
+    // "bundler" is best for modern tooling (Vite, tsx, esbuild).
+    // It behaves closer to how bundlers resolve modules.
+    "moduleResolution": "bundler",
+
+    /* ================================
+       STRICTNESS & TYPE SAFETY
+       ================================ */
+
+    // Enables ALL strict type-checking options.
+    // This is what makes TypeScript powerful.
+    // You should always keep this true in real projects.
+    "strict": true,
+
+    // Prevents unsafe array/object indexing.
+    // Example:
+    // arr[10] → number | undefined (forces you to check)
+    // This avoids runtime crashes.
+    "noUncheckedIndexedAccess": true,
+
+    // Makes optional properties EXACT.
+    // `{ name?: string }` does NOT mean `{ name: undefined }`
+    // Prevents many subtle bugs in APIs & DB models.
+    "exactOptionalPropertyTypes": true,
+
+    // In catch blocks, the error type becomes `unknown` instead of `any`.
+    // Forces you to properly check error types.
+    // This is very important for production-grade error handling.
+    "useUnknownInCatchVariables": true,
+
+    // Skips type-checking of node_modules.
+    // Speeds up compilation a LOT.
+    // Safe because libraries are already type-checked.
+    "skipLibCheck": true,
+
+    /* ================================
+       NODE PROJECT STRUCTURE
+       ================================ */
+
+    // Root folder where TypeScript source files live.
+    // All your .ts files should be inside this folder.
+    "rootDir": "src",
+
+    // Output folder where compiled JavaScript files go.
+    // Example:
+    // src/index.ts → dist/index.js
+    // (Usually named "dist", but name doesn't matter)
+    "outDir": "dist"
+  },
+
+  /* ================================
+     FILE SELECTION
+     ================================ */
+
+  // Tells TypeScript WHICH files to compile.
+  // This means: compile EVERYTHING inside src/
+  "include": ["src"]
+
+  // You could also use "exclude" if needed, but usually
+  // .gitignore already excludes build folders.
+}

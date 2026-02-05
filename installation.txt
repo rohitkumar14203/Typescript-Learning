@@ -1,0 +1,116 @@
+# Step 1: Initialize a Node.js project
+# This creates package.json
+npm init -y
+
+# Step 2: Install TypeScript (development dependency)
+# TypeScript is only needed during development, not in production
+npm install -D typescript
+
+# Step 3: Install ts-node (development dependency)
+# ts-node allows you to run .ts files directly without compiling first
+npm install -D ts-node
+
+# Step 4: Create tsconfig.json
+# This file controls how TypeScript compiles your code
+npx tsc --init
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+🔹 What “without compiling first” actually means
+Normal TypeScript flow (classic way)
+
+TypeScript cannot run directly in Node.
+So normally you do two steps:
+
+# Step 1: Compile TypeScript → JavaScript
+npx tsc
+
+# Step 2: Run the compiled JavaScript
+node dist/index.js
+
+
+📌 This is called compiling first.
+
+What ts-node / tsx does
+
+When we say:
+
+“run TypeScript without compiling first”
+
+it means:
+
+👉 You do NOT manually run tsc
+👉 No dist/ folder is created
+👉 No .js files are written
+
+Instead:
+
+npx ts-node src/index.ts
+npx tsx .\src\1-Annotations\notes\index.ts
+
+
+Behind the scenes:
+
+TypeScript code is compiled in memory
+The generated JavaScript is immediately executed
+Nothing is saved to disk
+
+So it feels like TS is running directly — but it’s actually JS in disguise.
+
+🧠 Is this a good thing?
+✅ YES — for development
+
+Why it’s good during dev:
+
+Benefit	Why it matters
+Faster	No build step
+Cleaner	No dist folder spam
+Simple	One command
+Great DX	Ideal for learning & testing
+
+That’s why we use:
+
+ts-node
+
+tsx
+
+❌ NO — for production
+
+Why it’s bad in production:
+
+Problem	Reason
+Slower startup	Compilation happens at runtime
+More memory	Compiler stays loaded
+Risky	Runtime compilation = failures
+Not standard	Prod expects JS, not TS
+
+🚨 Never deploy ts-node to production
+
+🔥 The golden rule (remember this)
+
+ts-node / tsx = development only
+tsc + node = production
+
+🔁 Real-world workflow (used by companies)
+During development
+npm run dev
+# runs tsx or ts-node
+
+For production
+npm run build   # tsc
+npm start       # node dist/index.js
+
+🧪 Visual mental model
+DEV:
+TypeScript ──► (ts-node / tsx, in memory) ──► Node
+
+PROD:
+TypeScript ──► tsc ──► JavaScript files ──► Node
+
+tsc stands for TypeScript Compiler. It is a command-line tool that compiles TypeScript code into JavaScript code.
+
+🧠 Why beginners get confused
+
+Because it looks like TS is running directly — but it never does.
+
+Node only understands JavaScript.
